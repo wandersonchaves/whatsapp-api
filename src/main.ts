@@ -58,12 +58,12 @@ export async function bootstrap() {
   const port = process.env.PORT || httpServer.PORT || 3333
 
   context.get('app').listen(port, () => {
-    logger.log('HTTP' + ' - ON: ' + httpServer.PORT)
+    logger.log('HTTP' + ' - ON: ' + port)
     new Logger(configService, 'Swagger Docs').warn(
       `
       ┌──────────────────────────────┐
       │         Swagger Docs         │
-      │  http://localhost:${httpServer.PORT}/docs  │
+      │  http://localhost:${port}/docs  │
       └──────────────────────────────┘`.replace(/^ +/gm, '  '),
     )
   })

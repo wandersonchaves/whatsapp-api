@@ -57,7 +57,7 @@ export async function bootstrap() {
 
   const port = process.env.PORT || httpServer.PORT || 3333
 
-  context.get('app').listen(port, () => {
+  context.get('app').listen(port, '0.0.0.0', () => {
     logger.log('HTTP' + ' - ON: ' + port)
     new Logger(configService, 'Swagger Docs').warn(
       `

@@ -63,7 +63,7 @@ export async function bootstrap() {
       `
       ┌──────────────────────────────┐
       │         Swagger Docs         │
-      │  http://localhost:${port}/docs  │
+      │  http://0.0.0.0:${port}/docs  │
       └──────────────────────────────┘`.replace(/^ +/gm, '  '),
     )
   })

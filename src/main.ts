@@ -53,7 +53,9 @@ export async function bootstrap() {
   context.get('module:logger').info('INITIALIZER')
   context.set('server:logger', logger)
 
-  const port = Number.parseInt(process.env?.PORT || '3333')
+  const httpServer = configService.get<HttpServer>('SERVER')
+
+  const port = Number.parseInt(process.env?.PORT || '3333') || httpServer.PORT
 
   context.get('app').listen(port, () => {
     logger.log('HTTP' + ' - ON: ' + port)

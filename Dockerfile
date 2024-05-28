@@ -29,7 +29,7 @@ FROM base AS production
 
 WORKDIR /whatsapp
 
-LABEL API_VERSION="1.3.1"
+LABEL API_VERSION="1.0.0"
 LABEL MANTAINER="https://github.com/wandersonchaves"
 LABEL REPOSITORY="https://github.com/wandersonchaves/whatsapp-api"
 

@@ -35,9 +35,8 @@
 
 import 'express-async-errors'
 
-import {ConfigService, HttpServer} from './config/env.config'
-
 import {AppModule} from './app.module'
+import {ConfigService} from './config/env.config'
 import {Logger} from './config/logger.config'
 import {onUnexpectedError} from './config/error.config'
 
@@ -53,9 +52,10 @@ export async function bootstrap() {
   context.get('module:logger').info('INITIALIZER')
   context.set('server:logger', logger)
 
-  const httpServer = configService.get<HttpServer>('SERVER')
+  // const httpServer = configService.get<HttpServer>('SERVER')
 
-  const port = Number.parseInt(process.env?.PORT || '3333') || httpServer.PORT
+  const port = Number.parseInt(process.env?.PORT || '3333')
+  // || httpServer.PORT
 
   context.get('app').listen(port, '0.0.0.0', () => {
     logger.log('HTTP' + ' - ON: ' + port)

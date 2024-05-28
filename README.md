@@ -131,7 +131,7 @@ pm2 start 'npm run start:prod' --name Whatsapp_API_v1.3.0
 
 ## Swagger - OpenAPI 3.0.0
 
-- Route: `http://localhost:8083/docs`
+- Route: `http://0.0.0.0:8083/docs`
 - YAML file: [swagger.yaml](./src/docs/swagger.yaml)
 
 ## Authentication

@@ -57,13 +57,13 @@ export async function bootstrap() {
 
   const port = Number.parseInt(process.env?.PORT || '3333') || httpServer.PORT
 
-  context.get('app').listen(port, () => {
+  context.get('app').listen(port, '0.0.0.0', () => {
     logger.log('HTTP' + ' - ON: ' + port)
     new Logger(configService, 'Swagger Docs').warn(
       `
       ┌──────────────────────────────┐
       │         Swagger Docs         │
-      │  http://0.0.0.0:${port}/docs  │
+      │  http://0.0.0.0:${port}/docs │
       └──────────────────────────────┘`.replace(/^ +/gm, '  '),
     )
   })

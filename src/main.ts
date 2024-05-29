@@ -55,13 +55,15 @@ export async function bootstrap() {
 
   const httpServer = configService.get<HttpServer>('SERVER')
 
-  context.get('app').listen(httpServer.PORT, () => {
-    logger.log('HTTP' + ' - ON: ' + httpServer.PORT)
+  const PORT = httpServer.PORT || 8084
+
+  context.get('app').listen(PORT, () => {
+    logger.log('HTTP' + ' - ON: ' + PORT)
     new Logger(configService, 'Swagger Docs').warn(
       `
       ┌──────────────────────────────┐
       │         Swagger Docs         │
-      │  http://localhost:${httpServer.PORT}/docs  │
+      │  http://localhost:${PORT}/docs  │
       └──────────────────────────────┘`.replace(/^ +/gm, '  '),
     )
   })

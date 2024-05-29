@@ -1,10 +1,10 @@
 /**
  * ┌──────────────────────────────────────────────────────────────────────────────┐
- * │ @author WandersonChaves                                                             │
+ * │ @author wandersonchaves                                                             │
  * │ @filename whatsapp.module.ts                                                 │
  * │ Developed by: Wanderson Chaves                                                  │
  * │ Creation date: Dez 06, 2022                                                  │
- * │ Contact: contatochaves@gmail.com                                                │
+ * │ Contact: contato@whatsapp.dev                                                │
  * ├──────────────────────────────────────────────────────────────────────────────┤
  * │ @copyright © Wanderson Chaves 2022. All rights reserved.                        │
  * │ Licensed under the Apache License, Version 2.0                               │
@@ -210,6 +210,10 @@ export async function AppModule(context: Map<string, any>) {
   router.use(...describeRoutes('/webhook', webhookRouter, logger))
   router.use(...describeRoutes('/s3', s3Router, logger))
   router.use(...describeRoutes('/typebot', typebotRouter, logger))
+
+  app.get('/health', (req, res) => {
+    res.status(200).json({status: 'OK'})
+  })
 
   app.use(urlencoded({extended: true, limit: '100mb'}), json({limit: '100mb'}))
 

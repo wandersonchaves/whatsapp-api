@@ -1,10 +1,10 @@
 /**
  * ┌──────────────────────────────────────────────────────────────────────────────┐
- * │ @author WandersonChaves                                                             │
+ * │ @author wandersonchaves                                                             │
  * │ @filename whatsapp.service.ts                                                │
  * │ Developed by: Wanderson Chaves                                                  │
  * │ Creation date: Nov 27, 2022                                                  │
- * │ Contact: contatochaves@gmail.com                                                │
+ * │ Contact: contato@whatsapp.dev                                                │
  * ├──────────────────────────────────────────────────────────────────────────────┤
  * │ @copyright © Wanderson Chaves 2022. All rights reserved.                        │
  * │ Licensed under the Apache License, Version 2.0                               │
@@ -802,7 +802,11 @@ export class WAStartupService {
 
         const messageType = getContentType(received.message)
 
-        received.message = this.getEditedMessage(received)
+        if (typeof received.message[messageType] === 'string') {
+          received.message[messageType] = {
+            text: received.message[messageType],
+          } as any
+        }
 
         const messageRaw = {
           keyId: received.key.id,
@@ -818,13 +822,28 @@ export class WAStartupService {
           isGroup: isJidGroup(received.key.remoteJid),
         } as PrismType.Message
 
-        this.logger.log('Type: ' + type)
-        console.log(messageRaw)
-
-        if (this.databaseOptions.DB_OPTIONS.NEW_MESSAGE) {
+        if (this.databaseOptions.DB_OPTIONS.NEW_MESSAGE && type === 'notify') {
           const {id} = await this.repository.message.create({data: messageRaw})
           messageRaw.id = id
         }
+
+        if (type === 'append') {
+          const find = await this.repository.message.findFirst({
+            where: {
+              keyId: messageRaw.keyId,
+              instanceId: messageRaw.instanceId,
+            },
+          })
+
+          if (find?.id) {
+            messageRaw.id = find.id
+          }
+        }
+
+        messageRaw['info'] = {type}
+
+        this.logger.log('Type: ' + type)
+        console.log(messageRaw)
 
         await this.sendDataWebhook('messagesUpsert', messageRaw)
 

@@ -1,9 +1,9 @@
 # ┌──────────────────────────────────────────────────────────────────────────────┐
-# │ @author WandersonChaves                                                             │
+# │ @author wandersonchaves                                                             │
 # │ @filename main.ts                                                            │
 # │ Developed by: Wanderson Chaves                                                  │
 # │ Creation date: Aug 13, 2023                                                  │
-# │ Contact: contatochaves@gmail.com                                                │
+# │ Contact: contato@whatsapp.dev                                                │
 # ├──────────────────────────────────────────────────────────────────────────────┤
 # │ @copyright © Wanderson Chaves 2022. All rights reserved.                        │
 # │ Licensed under the Apache License, Version 2.0                               │
@@ -31,7 +31,7 @@
 
 openapi: 3.0.0
 info:
-  title: Whatsapp - WhatsApp API
+  title: WhatsApp - WhatsApp API
   description: |
     <hr style="height: 5px;background: #007500;margin: 20px 0;box-shadow: 0px 3px 5px 0px rgb(204 204 204);"/>
 
@@ -46,19 +46,19 @@ info:
       
     <div align="center"><img src="https://raw.githubusercontent.com/wandersonchaves/whatsapp-api/main/public/images/cover.png"/></div>
 
-    Whatsapp is an advanced WhatsApp integration API that seamlessly merges the popularity of WhatsApp with modern business applications. 
-    With comprehensive features, the Whatsapp API empowers businesses to expand their digital presence, reach customers more directly, and 
+    WhatsApp is an advanced WhatsApp integration API that seamlessly merges the popularity of WhatsApp with modern business applications. 
+    With comprehensive features, the WhatsApp API empowers businesses to expand their digital presence, reach customers more directly, and 
     provide personalized and efficient support, all through the world's most widely used messaging platform.
 
-    The Whatsapp API opens doors to more effective and engaging business communication, offering a modern approach to customer support, 
-    direct marketing, and real-time interactions. By combining WhatsApp's popularity with the functionality of the Whatsapp API, businesses 
+    The WhatsApp API opens doors to more effective and engaging business communication, offering a modern approach to customer support, 
+    direct marketing, and real-time interactions. By combining WhatsApp's popularity with the functionality of the WhatsApp API, businesses 
     can build stronger and more authentic relationships with their customers, generating lasting satisfaction and loyalty.
 
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/whatsapp/workspace/whatsapp-whatsapp-api/api/fbe06c7b-7647-4c71-81ee-841f5b2e90d8?action=share&creator=14064846)
   version: 1.3.0
   contact:
-    name: WandersonChaves
-    email: contatochaves@gmail.com
+    name: wandersonchaves
+    email: wanderson@whatsapp.dev
     url: https://www.apache.org/licenses/LICENSE-2.0
   license:
     name: Apache License - Version 2.0, January 2004
@@ -105,7 +105,7 @@ servers:
   - url: http://{{dev_host}}
     variables:
       dev_host:
-        default: 0.0.0.0:8084
+        default: 127.0.0.1:8084
 
 paths:
   /instance/qrcode/{instanceName}:

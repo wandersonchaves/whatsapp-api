@@ -33,7 +33,7 @@ services:
 
       - INSTANCE_EXPIRATION_TIME=false
 
-      - CONFIG_SESSION_PHONE_CLIENT=Whatsapp_V1
+      - CONFIG_SESSION_PHONE_CLIENT=WhatsApp_V1
       - CONFIG_SESSION_PHONE_NAME=Edge
 
       - QRCODE_LIMIT=10
@@ -58,7 +58,7 @@ services:
       # - S3_USE_SSL=false
     networks:
       - public-network
-
+  
   # redis_cache:
   #   image: redis:latest
   #   container_name: redis_cache

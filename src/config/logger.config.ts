@@ -1,10 +1,10 @@
 /**
  * ┌──────────────────────────────────────────────────────────────────────────────┐
- * │ @author WandersonChaves                                                             │
+ * │ @author wandersonchaves                                                             │
  * │ @filename logger.config.ts                                                   │
  * │ Developed by: Wanderson Chaves                                                  │
  * │ Creation date: Nov 27, 2022                                                  │
- * │ Contact: contatochaves@gmail.com                                                │
+ * │ Contact: contato@whatsapp.dev                                                │
  * ├──────────────────────────────────────────────────────────────────────────────┤
  * │ @copyright © Wanderson Chaves 2022. All rights reserved.                        │
  * │ Licensed under the Apache License, Version 2.0                               │
@@ -123,7 +123,7 @@ export class Logger {
       if (this.configService.get<Log>('LOG').COLOR) {
         console.log(
           /*Command.UNDERSCORE +*/ Command.BRIGHT + Level[type],
-          '[Whatsapp]',
+          '[WhatsApp]',
           Command.BRIGHT + Color[type],
           process.pid.toString(),
           Command.RESET,
@@ -149,7 +149,7 @@ export class Logger {
         }
       } else {
         console.log(
-          '[Whatsapp]',
+          '[WhatsApp]',
           process.pid.toString(),
           '-',
           `${formatDateLog(Date.now())}  `,

@@ -203,7 +203,7 @@ watch = true
 #
 # Obrigatório
 #
-email = "wandersonchavesbr14@gmail.com"
+email = "wanderson@whatsapp.dev"
 
 # Arquivo ou chave usada para armazenamento de certificados.
 # mkdir -p /etc/traefik/letsencrypt

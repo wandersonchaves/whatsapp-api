@@ -1,15 +1,15 @@
 /**
  * ┌──────────────────────────────────────────────────────────────────────────────┐
- * │ @author WandersonChaves                                                      │
+ * │ @author wandersonchaves                                                             │
  * │ @filename main.ts                                                            │
- * │ Developed by: Wanderson Chaves                                               │
+ * │ Developed by: Wanderson Chaves                                                  │
  * │ Creation date: Nov 27, 2022                                                  │
- * │ Contact: contatochaves@gmail.com                                             │
+ * │ Contact: contato@whatsapp.dev                                                │
  * ├──────────────────────────────────────────────────────────────────────────────┤
- * │ @copyright © Wanderson Chaves 2022. All rights reserved.                     │
+ * │ @copyright © Wanderson Chaves 2022. All rights reserved.                        │
  * │ Licensed under the Apache License, Version 2.0                               │
  * │                                                                              │
- * │  @license "https://github.com/wandersonchaves/whatsapp-api/blob/main/LICENSE"│
+ * │  @license "https://github.com/wandersonchaves/whatsapp-api/blob/main/LICENSE"   │
  * │                                                                              │
  * │ You may not use this file except in compliance with the License.             │
  * │ You may obtain a copy of the License at                                      │
@@ -35,8 +35,9 @@
 
 import 'express-async-errors'
 
+import {ConfigService, HttpServer} from './config/env.config'
+
 import {AppModule} from './app.module'
-import {ConfigService} from './config/env.config'
 import {Logger} from './config/logger.config'
 import {onUnexpectedError} from './config/error.config'
 
@@ -52,18 +53,15 @@ export async function bootstrap() {
   context.get('module:logger').info('INITIALIZER')
   context.set('server:logger', logger)
 
-  // const httpServer = configService.get<HttpServer>('SERVER')
+  const httpServer = configService.get<HttpServer>('SERVER')
 
-  const port = Number.parseInt(process.env?.PORT || '3333')
-  // || httpServer.PORT
-
-  context.get('app').listen(port, '0.0.0.0', () => {
-    logger.log('HTTP' + ' - ON: ' + port)
+  context.get('app').listen(httpServer.PORT, () => {
+    logger.log('HTTP' + ' - ON: ' + httpServer.PORT)
     new Logger(configService, 'Swagger Docs').warn(
       `
       ┌──────────────────────────────┐
       │         Swagger Docs         │
-      │  http://0.0.0.0:${port}/docs │
+      │  http://localhost:${httpServer.PORT}/docs  │
       └──────────────────────────────┘`.replace(/^ +/gm, '  '),
     )
   })

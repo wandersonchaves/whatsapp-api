@@ -1,10 +1,10 @@
 /**
  * ┌──────────────────────────────────────────────────────────────────────────────┐
- * │ @author WandersonChaves                                                             │
+ * │ @author wandersonchaves                                                             │
  * │ @filename group.controller.ts                                                │
  * │ Developed by: Wanderson Chaves                                                  │
  * │ Creation date: Jul 17, 2022                                                  │
- * │ Contact: contatochaves@gmail.com                                                │
+ * │ Contact: contato@whatsapp.dev                                                │
  * ├──────────────────────────────────────────────────────────────────────────────┤
  * │ @copyright © Wanderson Chaves 2022. All rights reserved.                        │
  * │ Licensed under the Apache License, Version 2.0                               │

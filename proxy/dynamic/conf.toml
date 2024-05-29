@@ -87,11 +87,11 @@ passHostHeader = true
 # http para o loadbalancer. Vamos inserir uma lista com
 # um único servidor.
 [[http.services.traefik_dashboard.loadbalancer.servers]]
-url = "http://0.0.0.0:80"
+url = "http://127.0.0.1:80"
 #
 # Exemplo de outro item da lista de servidores
 # [[http.service.traefik_dashboard.loadbalancer.servers]]
-#   url = "http://0.0.0.0:8080"
+#   url = "http://127.0.0.1:8080"
 #
 
 ###############################################################
@@ -113,7 +113,7 @@ certresolver = "letsencrypt_resolver"
 [http.services.studio_db_v1.loadbalancer]
 passHostHeader = true
 [[http.services.studio_db_v1.loadbalancer.servers]]
-url = "http://0.0.0.0:4444"
+url = "http://127.0.0.1:4444"
 
 ###############################################################
 ### Roteador e serviço do "whatsapp_api_v1"
@@ -134,4 +134,4 @@ certresolver = "letsencrypt_resolver"
 [http.services.whatsapp_api_v1.loadbalancer]
 passHostHeader = true
 [[http.services.whatsapp_api_v1.loadbalancer.servers]]
-url = "http://0.0.0.0:8084"
+url = "http://127.0.0.1:8084"

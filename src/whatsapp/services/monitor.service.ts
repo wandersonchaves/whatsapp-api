@@ -104,6 +104,7 @@ export class WAMonitoringService {
   }
 
   private async cleaningUp({name, id}: Instance) {
+    console.log('🚀 ~ WAMonitoringService ~ cleaningUp ~ cleaningUp:')
     this.waInstances
       .get(name)
       ?.client?.ev.removeAllListeners('connection.update')

@@ -86,9 +86,13 @@ export class InstanceController {
   }
 
   public async reloadConnection({instanceName}: InstanceDto) {
+    console.log(
+      '🚀 ~ InstanceController ~ reloadConnection ~ reloadConnection:',
+    )
     try {
       const instance = this.waMonitor.waInstances[instanceName]
       const state = instance?.connectionStatus?.state
+      console.log('🚀 ~ InstanceController ~ reloadConnection ~ state:', state)
 
       switch (state) {
         case 'open':
@@ -128,6 +132,10 @@ export class InstanceController {
       )
       await instance.setInstanceName(instanceName)
       this.waMonitor.waInstances.set(instance.instanceName, instance)
+      console.log(
+        '🚀 ~ InstanceController ~ connectToWhatsapp ~ instance.instanceName:',
+        instance.instanceName,
+      )
       this.waMonitor.delInstanceTime(instance.instanceName)
 
       this.waMonitor.waInstances.set(instanceName, instance)

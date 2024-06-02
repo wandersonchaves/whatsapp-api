@@ -78,10 +78,19 @@ export class WAMonitoringService {
   public readonly waInstances = new Map<string, WAStartupService>()
 
   public delInstanceTime(instance: string) {
+    console.log(
+      '🚀 ~ WAMonitoringService ~ delInstanceTime ~ instance:',
+      instance,
+    )
     const time = this.configService.get<InstanceExpirationTime>(
       'INSTANCE_EXPIRATION_TIME',
     )
+    console.log('🚀 ~ WAMonitoringService ~ delInstanceTime ~ time:', time)
     if (typeof time === 'number' && time > 0) {
+      console.log(
+        "🚀 ~ WAMonitoringService ~ delInstanceTime ~ typeof time === 'number' && time > 0:",
+        typeof time === 'number' && time > 0,
+      )
       setTimeout(
         () => {
           const ref = this.waInstances.get(instance)

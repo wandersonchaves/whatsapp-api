@@ -138,7 +138,7 @@ export const mediaMessageSchema: JSONSchema7 = {
       properties: {
         mediatype: {
           type: 'string',
-          enum: ['image', 'document', 'video', 'audio'],
+          enum: ['image', 'document', 'video', 'audio', 'sticker'],
         },
         media: {type: 'string'},
         fileName: {type: 'string'},
@@ -157,7 +157,10 @@ export const mediaFileMessageSchema: JSONSchema7 = {
   properties: {
     number: {...numberDefinition},
     caption: {type: 'string'},
-    mediatype: {type: 'string', enum: ['image', 'document', 'video', 'audio']},
+    mediatype: {
+      type: 'string',
+      enum: ['image', 'document', 'video', 'audio', 'sticker'],
+    },
     presence: {type: 'string', enum: ['composing', 'recording']},
     delay: {type: 'string'},
   },

@@ -125,6 +125,7 @@ export class WAMonitoringService {
   }
 
   public async loadInstance() {
+    console.log('🚀 ~ WAMonitoringService ~ loadInstance ~ loadInstance:')
     const set = async (name: string) => {
       const instance = await this.repository.instance.findUnique({
         where: {name},

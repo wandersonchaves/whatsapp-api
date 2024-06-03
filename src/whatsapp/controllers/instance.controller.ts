@@ -130,6 +130,10 @@ export class InstanceController {
         this.repository,
         this.redisCache,
       )
+      console.log(
+        '🚀 ~ InstanceController ~ connectToWhatsapp ~ instance:',
+        instance,
+      )
       await instance.setInstanceName(instanceName)
       this.waMonitor.waInstances.set(instance.instanceName, instance)
       console.log(

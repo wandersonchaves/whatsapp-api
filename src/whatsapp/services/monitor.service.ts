@@ -139,6 +139,7 @@ export class WAMonitoringService {
         this.repository,
         this.redisCache,
       )
+      console.log('🚀 ~ WAMonitoringService ~ set ~ init:', init)
       await init.setInstanceName(name)
       await init.connectToWhatsapp()
       this.waInstances.set(name, init)

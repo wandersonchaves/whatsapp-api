@@ -448,6 +448,7 @@ export class WAStartupService {
       ).profilePictureUrl
       this.instance.connectionStatus = 'ONLINE'
 
+      console.log('🚀 ~ WAStartupService ~ this.instance:', this.instance)
       this.repository.instance
         .update({
           where: {id: this.instance.id},

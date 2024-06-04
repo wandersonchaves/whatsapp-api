@@ -5,6 +5,7 @@
   "main": "./dist/src/main.js",
   "scripts": {
     "build": "tsc",
+    "start:railway": "node ./dist/src/main",
     "start": "ts-node --files --transpile-only ./src/main.ts",
     "start:prod": "bash start.sh",
     "start:dev": "clear && tsnd --files --transpile-only --respawn --ignore-watch node_modules ./src/main.ts",

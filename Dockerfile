@@ -8,7 +8,7 @@ WORKDIR /whatsapp
 
 COPY package*.json ./
 
-RUN apt-get update && apt-get install -y git && npm install
+RUN apt-get update && apt-get install -y git && npm install && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY tsconfig.json .
 COPY ./src ./src
@@ -30,7 +30,7 @@ FROM base AS production
 WORKDIR /whatsapp
 
 LABEL API_VERSION="1.0.0"
-LABEL MANTAINER="https://github.com/wandersonchaves"
+LABEL MAINTAINER="https://github.com/wandersonchaves"
 LABEL REPOSITORY="https://github.com/wandersonchaves/whatsapp-api"
 
 # Copiando arquivos construídos do estágio builder

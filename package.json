@@ -8,7 +8,8 @@
     "start": "ts-node --files --transpile-only ./src/main.ts",
     "start:prod": "bash start.sh",
     "start:dev": "clear && tsnd --files --transpile-only --respawn --ignore-watch node_modules ./src/main.ts",
-    "test": "clear && tsnd --files --transpile-only --respawn --ignore-watch node_modules ./test/all.test.ts"
+    "test": "clear && tsnd --files --transpile-only --respawn --ignore-watch node_modules ./test/all.test.ts",
+    "starsh": "rm -rf ./dist && npm run build && node ./dist/src/main.js"
   },
   "repository": {
     "type": "git",

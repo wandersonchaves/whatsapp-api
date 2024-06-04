@@ -356,6 +356,9 @@ export class WAStartupService {
     connection,
     lastDisconnect,
   }: Partial<ConnectionState>) {
+    console.log('🚀 ~ WAStartupService ~ qr:', qr)
+    console.log('🚀 ~ WAStartupService ~ connection:', connection)
+    console.log('🚀 ~ WAStartupService ~ lastDisconnect:', lastDisconnect)
     if (qr) {
       if (
         this.qrCode.count === this.configService.get<QrCode>('QRCODE').LIMIT
